@@ -16,6 +16,7 @@
  */
 package com.netease.qa.emmagee.activity;
 
+
 import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -32,7 +33,7 @@ import com.netease.qa.emmagee.R;
 
 /**
  * About Page of Emmagee
- * 
+ * zhoujingyun
  * @author andrewleo
  */
 public class AboutActivity extends Activity {
