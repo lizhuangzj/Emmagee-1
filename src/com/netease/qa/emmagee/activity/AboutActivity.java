@@ -33,7 +33,7 @@ import com.netease.qa.emmagee.R;
 
 /**
  * About Page of Emmagee
- * zhoujingyun
+ * zhoujingyun caotianwei
  * @author andrewleo
  */
 public class AboutActivity extends Activity {
