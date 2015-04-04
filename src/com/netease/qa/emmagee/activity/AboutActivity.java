@@ -41,23 +41,23 @@ public class AboutActivity extends Activity {
 	private static final String LOG_TAG = "Emmagee-"
 			+ AboutActivity.class.getSimpleName();
 
-	private TextView appVersion;
+	private TextView appVersion; //
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(LOG_TAG, "onCreate");
-		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.about);
+		super.onCreate(savedInstanceState);//调用onCreate方法 初始化activity
+		requestWindowFeature(Window.FEATURE_NO_TITLE);//设置显示界面为无默认title
+		setContentView(R.layout.about);//将about布局界面显示出来
 		
-		appVersion = (TextView)findViewById(R.id.app_version);
-		appVersion.setText(getVersion());
+		appVersion = (TextView)findViewById(R.id.app_version); //定义获取app版本的变量
+		appVersion.setText(getVersion());//调用获取版本的方法
 		
-		TextView title = (TextView)findViewById(R.id.nb_title);
-		title.setText(R.string.about);
+		TextView title = (TextView)findViewById(R.id.nb_title);//定义一个TextView类型的变量 并实例化
+		title.setText(R.string.about); //获取该软件的介绍内容
 		
-		ImageView btnSave = (ImageView) findViewById(R.id.btn_set);
-		btnSave.setVisibility(ImageView.INVISIBLE);
+		ImageView btnSave = (ImageView) findViewById(R.id.btn_set);//定义一个图片变量 获取图片的id值
+		btnSave.setVisibility(ImageView.INVISIBLE);//设置图片为可见
 		
 		LinearLayout layGoBack = (LinearLayout) findViewById(R.id.lay_go_back);
 		

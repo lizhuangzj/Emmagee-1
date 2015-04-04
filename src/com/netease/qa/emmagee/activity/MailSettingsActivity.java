@@ -48,10 +48,10 @@ public class MailSettingsActivity extends Activity {
 	private static final String LOG_TAG = "Emmagee-" + MailSettingsActivity.class.getSimpleName();
 	private static final String BLANK_STRING = "";
 
-	private EditText edtRecipients;
-	private EditText edtSender;
-	private EditText edtPassword;
-	private EditText edtSmtp;
+	private EditText edtRecipients; //接收收件人的组件
+	private EditText edtSender;//接收发件人的组件
+	private EditText edtPassword;//接搜密码的组件
+	private EditText edtSmtp;//接收服务器的组件
 	private String sender;
 	private String prePassword, curPassword;
 	private String recipients, smtp;
@@ -67,17 +67,22 @@ public class MailSettingsActivity extends Activity {
 
 		final EncryptData des = new EncryptData("emmagee");
 
-		edtSender = (EditText) findViewById(R.id.sender);
-		edtPassword = (EditText) findViewById(R.id.password);
-		edtRecipients = (EditText) findViewById(R.id.recipients);
-		edtSmtp = (EditText) findViewById(R.id.smtp);
-		title = (TextView) findViewById(R.id.nb_title);
-		LinearLayout layGoBack = (LinearLayout) findViewById(R.id.lay_go_back);
-		LinearLayout layBtnSet = (LinearLayout) findViewById(R.id.lay_btn_set);
+		/*find view*/
+		edtSender = (EditText) findViewById(R.id.sender); //获取用来输入发件人的组件
+		edtPassword = (EditText) findViewById(R.id.password);//获取用来输入密码的组件
+		edtRecipients = (EditText) findViewById(R.id.recipients);//获取用来输入收件人的组件
+		edtSmtp = (EditText) findViewById(R.id.smtp);//获取用来输入服务器名称的组件
+		title = (TextView) findViewById(R.id.nb_title);//获取title文字的组件
+		LinearLayout layGoBack = (LinearLayout) findViewById(R.id.lay_go_back);//获取图标的组件
+		LinearLayout layBtnSet = (LinearLayout) findViewById(R.id.lay_btn_set);//获取设置图标的组件
 
-		title.setText(R.string.mail_settings);
+		title.setText(R.string.mail_settings);//
 
-		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		/*SharedPreference是Android提供的一种轻量级的数据存储方式，主要用来存储一些简单的配置信息
+		 *  通过SharedPreferences对象的键key可以获取到对应key的键值
+		 *  数据的存入是通过SharedPreferences对象的编辑器对象Editor来实现的
+		 * */
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);//获取一个shared的对象
 		sender = preferences.getString(Settings.KEY_SENDER, BLANK_STRING);
 		prePassword = preferences.getString(Settings.KEY_PASSWORD, BLANK_STRING);
 		recipients = preferences.getString(Settings.KEY_RECIPIENTS, BLANK_STRING);
@@ -88,12 +93,16 @@ public class MailSettingsActivity extends Activity {
 		edtPassword.setText(prePassword);
 		edtSmtp.setText(smtp);
 
+		/*设置返回键的监听事件*/
 		layGoBack.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				MailSettingsActivity.this.finish();
 			}
 		});
+		/*设置保存键的监听事件
+		 **
+		 * */
 		layBtnSet.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
