@@ -79,7 +79,7 @@ public class MainPageActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(LOG_TAG, "MainActivity::onCreate");
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);//设置Windows属性
 		setContentView(R.layout.mainpage);
 		
 		initTitleLayout();
